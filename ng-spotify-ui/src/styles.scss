@@ -1,0 +1,46 @@
+@import "bootstrap-scss/bootstrap";
+
+body {
+  background-color: black;
+  color: white;
+}
+
+a {
+  color: yellow;
+
+  &:hover {
+    color: yellow;
+  }
+}
+
+.page-title {
+  font-weight: 600;
+}
+
+.spotify-link {
+  font-weight: 500;
+}
+
+.section-border {
+  border-bottom: 1px solid white;
+}
+
+.track-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.back-btn {
+  font-size: 1.2rem;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 100px;
+  }
+
+  .back-arrow {
+    position: relative;
+    top: 1px;
+    font-weight: 600;
+  }
+}

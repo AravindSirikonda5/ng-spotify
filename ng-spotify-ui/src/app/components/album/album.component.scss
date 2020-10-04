@@ -1,0 +1,13 @@
+.album-img {
+  margin: 10px 0;
+  max-width: 350px;
+
+  @media (min-width: 576px) {
+    max-width: 220px;
+  }
+}
+
+.release-date {
+  font-size: 0.95rem;
+  margin: 5px 0;
+}

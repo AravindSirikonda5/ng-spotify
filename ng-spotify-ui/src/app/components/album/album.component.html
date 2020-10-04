@@ -1,0 +1,31 @@
+<section class="container mt-3" *ngIf="showError">
+  <p class="alert alert-danger">An error occurred while getting album data.</p>
+  <button class="btn btn-light" routerLink="/">Home</button>
+</section>
+
+<section class="container mt-3" *ngIf="album">
+  <div class="d-flex flex-column flex-lg-row justify-content-lg-between align-items-lg-center">
+    <h1 class="page-title">{{ album.artists[0].name }} - {{ album.name }}</h1>
+    <a class="spotify-link" [href]="album.external_urls.spotify" target="_blank">View Album on Spotify</a>
+  </div>
+  <div class="d-flex flex-column flex-lg-row justify-content-lg-between align-items-lg-end">
+    <img class="album-img" [src]="album.images[0].url" />
+    <p class="release-date">{{ album.release_date | date: "MMMM d, y" }}</p>
+  </div>
+  <div class="section-border mt-3 mb-4"></div>
+  <ul class="list-group">
+    <li
+      class="list-group-item d-flex flex-column flex-md-row justify-content-md-between align-items-md-center bg-dark my-1"
+      *ngFor="let track of album.tracks.items"
+    >
+      <span class="track-name">{{ track.name }}</span>
+      <a *ngIf="track.preview_url" [href]="track.preview_url" target="_blank">Preview Track</a>
+    </li>
+  </ul>
+</section>
+
+<section class="container mt-3 mb-4" *ngIf="album">
+  <button class="btn btn-light back-btn" routerLink="/artist/{{ album.artists[0].id }}">
+    <span class="back-arrow">&larr;</span> Back
+  </button>
+</section>

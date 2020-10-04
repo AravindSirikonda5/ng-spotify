@@ -1,0 +1,47 @@
+.form-control {
+  font-size: 1.1rem;
+  height: 50px;
+}
+
+.search-btn {
+  font-size: 1.1rem;
+  height: 50px;
+  margin-top: 5px;
+
+  @media (min-width: 992px) {
+    margin-top: 0;
+  }
+}
+
+.card {
+  color: black;
+  margin: 10px 0;
+
+  @media (min-width: 768px) {
+    margin: 20px 10px 40px 10px;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .genre-list {
+    margin: 0;
+    padding: 0;
+
+    .genre-list-item {
+      font-size: 0.9rem;
+      list-style-type: none;
+    }
+  }
+
+  .view-btn {
+    font-size: 0.95rem;
+    margin-top: 15px;
+    padding: 0.25rem 0.5rem;
+  }
+}

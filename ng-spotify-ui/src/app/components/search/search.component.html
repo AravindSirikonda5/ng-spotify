@@ -1,0 +1,41 @@
+<h1 class="sr-only">Home</h1>
+
+<section class="container mt-3">
+  <div class="row">
+    <div class="col-lg-10">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search music artists"
+        [(ngModel)]="artistName"
+        (keydown.enter)="onSearch()"
+      />
+    </div>
+    <div class="col-lg-2">
+      <button class="btn btn-light search-btn w-100" (click)="onSearch()">Search</button>
+    </div>
+  </div>
+</section>
+
+<section class="container" *ngIf="artists?.items.length > 0">
+  <div class="row justify-content-start mb-3">
+    <ng-container *ngFor="let artist of artists.items">
+      <div class="col-sm-6 col-lg-3" *ngIf="artist.images[0]?.url">
+        <div class="card">
+          <a routerLink="/artist/{{ artist.id }}">
+            <img [src]="artist.images[0].url" [alt]="artist.name" class="card-img-top" />
+          </a>
+          <div class="card-body">
+            <h2 class="card-title">{{ artist.name }}</h2>
+            <ul class="genre-list" *ngIf="artist.genres.length > 0">
+              <li class="genre-list-item" *ngFor="let genre of artist.genres">{{ genre }}</li>
+            </ul>
+            <button class="btn btn-dark view-btn" routerLink="/artist/{{ artist.id }}">
+              View Artist
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</section>
